@@ -1,0 +1,29 @@
+body {
+    background: linear-gradient(rgb(255, 255, 255) 0%, rgb(123, 224, 153) 50%, rgb(20, 70, 179)100% )
+}
+
+.container {
+        padding: 5% 25%;
+    }
+
+.card-header {
+    background: #236bbd;
+    color: #ffffff;
+    padding:5%;
+}
+.card-body {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.btn-primary {
+    background-color: #236bbd;
+    color: #ffffff;
+    
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: #236bbd;
+    border: 2px solid #236bbd ;
+}

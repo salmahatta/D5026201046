@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .container-form {
+            background-color: white;
+            border-radius: 20px;
+        }
+
+        body {
+
+            background: linear-gradient(0deg, rgba(38, 38, 130, 1) 0%, rgb(212, 69, 124) 40%, rgb(209, 209, 100) 100%);
+        }
+
+        .center {
+            width: 370px;
+            height: 400px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form-pendaftaran {
+            width: 90%;
+            max-width: 40rem;
+            min-width: 340px;
+            padding: 5rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid d-flex justify-content-center align-items-center">
+        <div class="form-pendaftaran">
+            <div class="container-form p-3 p-md-5">
+                <h3 class="font-weight-bold text-center w-100">Form Pendaftaran Staff BEM ITS 2021</h3>
+                <img src="BEM_ITS-removebg-preview.png" alt="Logo BEM ITS" class="center">
+
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Nama Lengkap</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="ketik disini">
+                </div>
+
+
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">NRP</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="ketik disini">
+                </div>
+
+                <div class="input-group mt-3 mb-3">
+                    <div class="input-group-prepend">
+                        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+                            Fakultas
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">FSAD</a>
+                            <a class="dropdown-item" href="#">FTIRS</a>
+                            <a class="dropdown-item" href="#">FTEIC</a>
+                            <a class="dropdown-item" href="#">FSPK</a>
+                            <a class="dropdown-item" href="#">FDKBD</a>
+                            <a class="dropdown-item" href="#">FV</a>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Departemen">
+                </div>
+
+                <div class="input-group mt-3 mb-3">
+                    <div class="input-group-prepend">
+                        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+                            Kementrian Pilihan 1
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Kementrian Edukasi dan Pasca Kampus</a>
+                            <a class="dropdown-item" href="#">Kementrian Multimedia dan Informasi</a>
+                            <a class="dropdown-item" href="#">Kementrian Komunikasi Strategis</a>
+                            <a class="dropdown-item" href="#">Kementrian Kebijakan Kampus</a>
+                            <a class="dropdown-item" href="#">Kementrian Kebijakan Publik</a>
+                            <a class="dropdown-item" href="#">Kementrian Hubungan Luar</a>
+                            <a class="dropdown-item" href="#">Kementrian Dalam Negeri</a>
+                            <a class="dropdown-item" href="#">Kementrian SosMas</a>
+                            <a class="dropdown-item" href="#">Kementrian RisTek</a>
+                            <a class="dropdown-item" href="#">Kementrian EKraf</a>
+                            <a class="dropdown-item" href="#">Kementrian PSDM</a>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Alasan">
+                </div>
+
+                <div class="input-group mt-3 mb-3">
+                    <div class="input-group-prepend">
+                        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+                            Kementrian Pilihan 2
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Kementrian Edukasi dan Pasca Kampus</a>
+                            <a class="dropdown-item" href="#">Kementrian Multimedia dan Informasi</a>
+                            <a class="dropdown-item" href="#">Kementrian Komunikasi Strategis</a>
+                            <a class="dropdown-item" href="#">Kementrian Kebijakan Kampus</a>
+                            <a class="dropdown-item" href="#">Kementrian Kebijakan Publik</a>
+                            <a class="dropdown-item" href="#">Kementrian Hubungan Luar</a>
+                            <a class="dropdown-item" href="#">Kementrian Dalam Negeri</a>
+                            <a class="dropdown-item" href="#">Kementrian SosMas</a>
+                            <a class="dropdown-item" href="#">Kementrian RisTek</a>
+                            <a class="dropdown-item" href="#">Kementrian EKraf</a>
+                            <a class="dropdown-item" href="#">Kementrian PSDM</a>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Alasan">
+                </div>
+
+                <div class="w-100 d-flex justify-content-center py-4">
+                    <button class="btn btn-lg btn-primary" type="button" data-toggle="modal"
+                        data-target="#confirmation">
+                        <span class="px-5">
+                            Daftar
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
