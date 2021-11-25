@@ -16,9 +16,4 @@ class ViewController extends Controller
         //source untuk data / proses bisnis yg di olah
         return view('tugasphp');
     }
-    function resultPHP(Request $request)
-    {
-        //source untuk data / proses bisnis yg di olah
-        return view('result');
-    }
 }

@@ -30,76 +30,81 @@
 </head>
 
 <body>
-    <section class=" mt-5 mb-5 me-auto m5-auto p-3">
-        <form action="resultphp" method="post" class="container-fluid me-auto ms-auto">
-            @csrf
-            <div class="content">
+    <section class="me-auto m5-auto p-5">
+        <form action="result.php" method="get" class="container-fluid">
                 <h1 class="text-center mt-4 mb-5">Welcome to Mad Libs Game!</h1>
-                <div class="row">
-                    <div class="col-3"></div>
-                    <div class="col-md-8">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
                         <div class=" row mb-3">
-                            <label class="col-sm-5">Love call with your couple :</label>
-                            <div class="col-sm-4">
+                            <label class="col-sm-5">Love call with your couple</label>
+                            <div class="col-1">:</div>
+                            <div class="col-sm-6">
                                 <input type="text" class="form-control" name="lovecall">
                             </div>
                         </div>
                         <div class=" row mb-3">
-                            <label class="col-sm-5">Name one of your favorite teacher :</label>
-                            <div class="col-sm-4">
+                            <label class="col-sm-5">Name one of your favorite teacher</label>
+                            <div class="col-1">:</div>
+                            <div class="col-sm-6">
                                 <input type="text" class="form-control" name="teacher">
                             </div>
                         </div>
                         <div class=" row mb-3">
-                            <label class="col-sm-5">Number between 100 to 200 :</label>
-                            <div class="col-sm-4">
+                            <label class="col-sm-5">Number between 100 to 200</label>
+                            <div class="col-1">:</div>
+                            <div class="col-sm-6">
                                 <input type="number" class="form-control" name="number">
                             </div>
                         </div>
                         <div class=" row mb-3">
-                            <label class="col-sm-5">Name an animal :</label>
-                            <div class="col-sm-4">
+                            <label class="col-sm-5">Name an animal</label>
+                            <div class="col-1">:</div>
+                            <div class="col-sm-6">
                                 <input type="text" class="form-control" name="animal">
                             </div>
                         </div>
                         <div class=" row mb-3">
-                            <label class="col-sm-5">Name a plant :</label>
-                            <div class="col-sm-4">
+                            <label class="col-sm-5">Name a plant</label>
+                            <div class="col-1">:</div>
+                            <div class="col-sm-6">
                                 <input type="text" class="form-control" name="plant">
                             </div>
                         </div>
                         <div class=" row mb-3">
-                            <label class="col-sm-5">Name one of your favorite actor :</label>
-                            <div class="col-sm-4">
+                            <label class="col-sm-5">Name one of your favorite actor</label>
+                            <div class="col-1">:</div>
+                            <div class="col-sm-6">
                                 <input type="text" class="form-control" name="actor">
                             </div>
                         </div>
                         <div class=" row mb-3">
-                            <label class="col-sm-5">Name of your favourite city :</label>
-                            <div class="col-sm-4">
+                            <label class="col-sm-5">Name of your favourite city</label>
+                            <div class="col-1">:</div>
+                            <div class="col-sm-6">
                                 <input type="text" class="form-control" name="city">
                             </div>
                         </div>
                         <div class=" row mb-3">
-                            <label class="col-sm-5">Name of your favourite food :</label>
-                            <div class="col-sm-4">
+                            <label class="col-sm-5">Name of your favourite food</label>
+                            <div class="col-1">:</div>
+                            <div class="col-sm-6">
                                 <input type="text" class="form-control" name="food">
                             </div>
                         </div>
                         <div class=" row mb-3">
-                            <label class="col-sm-5">Your birthday year :</label>
-                            <div class="col-sm-4">
+                            <label class="col-sm-5">Your birthday year</label>
+                            <div class="col-1">:</div>
+                            <div class="col-sm-6">
                                 <input type="number" class="form-control" name="birthday">
                             </div>
                         </div>
-                        <div class="row mt-5 mb-5">
-                            <div class="col-sm-8">
+                        <div class="row mt-5 mb-5 justify-content-center">
+                            <div class="col-sm-5">
                                 <button type="submit" class="mx-4 form-control btn btn-success btn-lg">Create
                                     Story!</button>
                             </div>
                         </div>
                     </div>
-                    <div class="col-2"></div>
                 </div>
         </form>
     </section>

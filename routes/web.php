@@ -26,5 +26,17 @@ Route::get('praktikum2form', function () {
 Route::get('ets2021', "ViewController@showETS");
 
 Route::get('tugasphp', "ViewController@showPHP");
+//route CRUD
+Route::get('/pegawai', 'PegawaiController@index');
+Route::get('/pegawai/tambah', 'PegawaiController@tambah');
+Route::post('/pegawai/store', 'PegawaiController@store');
+Route::get('/pegawai/edit/{id}', 'PegawaiController@edit');
+Route::post('/pegawai/update', 'PegawaiController@update');
+Route::get('/pegawai/hapus/{id}', 'PegawaiController@hapus');
 
-Route::post('resultphp', "ViewController@resultPHP");
+Route::get('/tugas', 'TugasController@index');
+Route::get('/tugas/tambah', 'TugasController@create');
+Route::post('/tugas/store', 'TugasController@store');
+Route::get('/tugas/edit/{id}', 'TugasController@edit');
+Route::post('/tugas/update/{id}', 'TugasController@update');
+Route::get('/tugas/hapus/{id}', 'TugasController@hapus');

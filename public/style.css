@@ -1,5 +1,5 @@
 body {
-    background-color: #7dabe0;
+    background: linear-gradient(90deg, #b488b4 0%, #37609c 100%);
 }
 .container .border{
     border: 2px solid black !important;
@@ -11,7 +11,6 @@ body {
 }
 .btn-primary:hover{
     background-color:transparent;
-    color:#236bbd;
     border: 2px solid #236bbd;
 }
 .btn-success {
