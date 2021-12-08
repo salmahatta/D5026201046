@@ -1,62 +1,58 @@
 @extends('layout.happy')
-@section('title', 'Data Absen')
-@section('judulhalaman', 'DATA ABSEN')
+@section('content')
+<div class="container my-5">
 
-@section('konten')
-    <a href="/absen"> Kembali</a>
+    <a href="/absen"> <i class="fas fa-arrow-left"> </i> </a>
+    <br/>
+    <br/>
+    <h3>Tambah Absen</h3>
+    <br/>
 
-    <br />
-    <br />
-
-    <form action="/absen/store" method="post">
+    <form action="/absen/store" method="post" class="container-fluid">
         {{ csrf_field() }}
-        <div class="container">
-
-            <div class="row">
-                <div class='col-lg-9'>
-                    <div class="form-group">
-                        <label for="nama" class="col-sm-2 control-label">Nama Pegawai :</label>
-                        <div class='col-sm-4 input-group date' id='nama'>
-                            <select class="form-control" name="idpegawai">
-                                @foreach($pegawai as $p )
-                                    <option value="{{ $p->pegawai_id }}"> {{ $p->pegawai_nama }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row">
-                <div class='col-lg-9'>
-                    <div class="form-group">
-                        <label for="dtpickerdemo" class="col-sm-2 control-label">Tanggal :</label>
-                        <div class='col-sm-4 input-group date' id='dtpickerdemo'>
-                            <input type='text' class="form-control" name="tanggal" required="required" />
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <script type="text/javascript">
-                    $(function() {
-                        $('#dtpickerdemo').datetimepicker({
-                            format: "YYYY-MM-DD hh:mm:ss",
-                            "defaultDate": new Date(),
-                            locale : "id"
-                        });
-                    });
-                </script>
+        <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"">Nama Pegawai </label>
+            <div class="col-3">
+                <select class="form-control" name="idpegawai">
+                    @foreach($pegawai as $p )
+                    <option value="{{ $p->pegawai_id }}"> {{ $p->pegawai_nama }}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
-        Status
-        <input type="radio" id="h" name="status" value="H">
-        <label for="h">HADIR</label><br>
-        <input type="radio" id="a" name="status" value="A" checked="checked">
-        <label for="a">TIDAK HADIR</label><br>
-        <input type="submit" value="Simpan Data">
-    </form>
-@endsection
 
+        <div class="row mb-3">
+        <label for="dtpickerdemo" class="col-sm-2 col-form-label">Tanggal </label>
+            <div class="col-3">
+            <input type="datetime-local" class="form-control" name="tanggal" required>
+            </div>
+        </div>
+
+
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Status</label>
+            <div class="col-3">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="status" id="h" value="H" required>
+                <label class="form-check-label" for="h">
+                    Hadir
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="status" id="a" value="A" checked required>
+                <label class="form-check-label" for="a">
+                    Tidak Hadir
+                </label>
+              </div>
+            </div>
+        </div>
+
+        <div class="row mt-4 mb-5">
+            <label class="col-sm-2 col-form-label"></label>
+            <div class="col-3">
+                <button type="submit" class=" form-control btn-success">Simpan Data</button>
+            </div>
+        </div>
+    </form>
+</div>
+@endsection
