@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Tugas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TugasController extends Controller
 {
@@ -14,8 +14,9 @@ class TugasController extends Controller
      */
     public function index()
     {
-        $data = Tugas::all();
-        return view("tugas.index", compact(["data"])); //
+        //$data = Tugas::all();
+        $tugas = DB::table('tugas')->paginate(5);
+        return view("tugas.index", ['tugas' => $tugas]); //
     }
 
     /**
@@ -25,7 +26,8 @@ class TugasController extends Controller
      */
     public function create()
     {
-        return view("tugas.tambah"); //
+        $pegawai = DB::table('pegawai')->orderBy("pegawai_nama", "asc")->get();
+        return view('tugas.tambah', compact(['pegawai'])); //
     }
 
     /**
@@ -36,11 +38,11 @@ class TugasController extends Controller
      */
     public function store(Request $request)
     {
-        Tugas::insert([
-            'pegawai_id' => $request->pegawai_id,
-            'id' => $request->id,
-            'tanggal' => $request->tanggal,
-            'nama_tugas' => $request->nama_tugas,
+
+        DB::table('tugas')->insert([
+            'IDPegawai' => $request->nama_pegawai,
+            'Tanggal' => $request->tanggal,
+            'NamaTugas' => $request->nama_tugas,
         ]); //
         return redirect('/tugas');
     }
@@ -53,7 +55,7 @@ class TugasController extends Controller
      */
     public function hapus($id)
     {
-        Tugas::find($id)->delete();
+        DB::table('tugas')->where("ID", $id)->delete();
         return redirect('/tugas'); //
     }
 
@@ -65,7 +67,8 @@ class TugasController extends Controller
      */
     public function edit($id)
     {
-        $tugas = Tugas::find($id);
+        // $tugas = DB::find($id);
+        $tugas = DB::table('tugas')->where('ID', $id)->first();
         // passing data pegawai yang didapat ke view edit.blade.php
         return view('tugas.edit', ['tugas' => $tugas]); //
     }
@@ -77,14 +80,14 @@ class TugasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        Tugas::find($id)->update([
-            'pegawai_id' => $request->pegawai_id,
-            'id' => $request->id,
-            'tanggal' => $request->tanggal,
-            'nama_tugas' => $request->nama_tugas,
-            'status' => $request->status,
+        DB::table('tugas')->where('ID', $request->id)->update([
+            'IDPegawai' => $request->IDPegawai,
+            'ID' => $request->ID,
+            'Tanggal' => $request->Tanggal,
+            'NamaTugas' => $request->NamaTugas,
+            'Status' => $request->Status,
         ]);
         // alihkan halaman ke halaman pegawai
         return redirect('/tugas'); //

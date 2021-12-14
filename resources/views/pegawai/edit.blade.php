@@ -13,12 +13,12 @@
 	<form action="/pegawai/update" method="post" class="container-fluid">
 		{{ csrf_field() }}
         <div class="row mb-3">
-		<input type="hidden" class="form-control" name="pegawai_id" value="{{ $p->pegawai_id }}">
+		<input type="hidden" class="form-control" name="id" value="{{ $p->pegawai_id }}">
         </div>
         <div class="row mb-3">
             <label class="col-sm-2 col-form-label">Nama</label>
         <div class="col-3">
-		<input type="text" class="form-control" required="required" name="id" value="{{ $p->pegawai_nama }}">
+		<input type="text" class="form-control" required="required" name="nama" value="{{ $p->pegawai_nama }}">
         </div>
         </div>
         <div class="row mb-3">

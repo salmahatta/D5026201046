@@ -2,29 +2,25 @@
 @section('content')
 <div class="container my-5">
 
-    <a href="/absen"> <i class="fas fa-arrow-left"> </i> </a>
+    <a href="/sandal"> <i class="fas fa-arrow-left"> </i> </a>
     <br/>
     <br/>
-    <h3>Tambah Absen</h3>
+    <h3>Tambah Sandal</h3>
     <br/>
 
-    <form action="/absen/store" method="post" class="container-fluid">
+    <form action="/sandal/store" method="post" class="container-fluid">
         {{ csrf_field() }}
         <div class="row mb-3">
-        <label class="col-sm-2 col-form-label"">Nama Pegawai </label>
+        <label class="col-sm-2 col-form-label"">Merk Sandal</label>
             <div class="col-3">
-                <select class="form-control" name="idpegawai">
-                    @foreach($pegawai as $p )
-                    <option value="{{ $p->pegawai_id }}"> {{ $p->pegawai_nama }}</option>
-                    @endforeach
-                </select>
+            <input type="text" class="form-control" name="merk" required>
             </div>
         </div>
 
         <div class="row mb-3">
-        <label for="dtpickerdemo" class="col-sm-2 col-form-label">Tanggal </label>
+        <label for="dtpickerdemo" class="col-sm-2 col-form-label">Stock Sandal </label>
             <div class="col-3">
-            <input type="datetime-local" class="form-control" name="tanggal" required>
+            <input type="number" class="form-control" name="stock" required>
             </div>
         </div>
 
@@ -32,15 +28,15 @@
             <label class="col-sm-2 col-form-label">Status</label>
             <div class="col-3">
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="status" id="h" value="H" required>
+                <input class="form-check-input" type="radio" name="tersedia" id="tersedia" value="T" required>
                 <label class="form-check-label" for="h">
-                    Hadir
+                    Tersedia
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="status" id="a" value="A" checked required>
+                <input class="form-check-input" type="radio" name="tersedia" id="kosong" value="K" checked required>
                 <label class="form-check-label" for="a">
-                    Tidak Hadir
+                    Kosong
                 </label>
               </div>
             </div>

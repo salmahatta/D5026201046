@@ -2,15 +2,15 @@
 @section('content')
 <body>
 <div class="container my-5">
-	<h3>Data Absen</h3>
+	<h3>Data Sandal</h3>
 
-	<a href="/absen/tambah"> + Tambah Absen Baru</a>
+	<a href="/sandal/tambah"> + Tambah Sandal Baru</a>
 
 	<br/>
-    <form class="mt-3" action="/pegawai/cari" method="GET">
+    <form class="mt-3" action="/sandal/cari" method="GET">
         <div class="input-group">
         <div class="form-outline">
-        <input type="search" name="cari" placeholder="ketik nama pegawai" class="form-control" value="{{ old('cari') }}">
+        <input type="search" name="cari" placeholder="ketik merk sandal" class="form-control" value="{{ old('cari') }}">
         </div>
         <button id="search-button" type="submit" class="btn btn-primary">
             <i class="fas fa-search"></i>
@@ -23,31 +23,29 @@
         <thead class="table-dark">
             <tr>
             <th>No</th>
-			<th>ID Pegawai</th>
-			<th>Tanggal</th>
+			<th>Merk Sandal</th>
 			<th>Status</th>
 			<th>Opsi</th>
             </tr>
         </thead>
-		@foreach($absen as $a)
+		@foreach($sandal as $s)
         <tbody>
 		<tr>
             <td>{{ $loop->iteration }}</td>
-			<td>{{ $a->IDPegawai }}</td>
-			<td>{{ $a->Tanggal }}</td>
-			<td>{{ $a->Status }}</td>
+			<td>{{ $s->merksandal }}</td>
+			<td>{{ $s->tersedia }}</td>
 			<td>
-                <a href="/absen/detail/{{ $a->ID}}"><i class="fas fa-info-circle"></i></a>
+                <a href="/sandal/detail/{{ $s->kodesandal }}"><i class="fas fa-info-circle"></i></a>
                 |
-				<a href="/absen/edit/{{ $a->ID}}"><i class="fas fa-edit"></i></a>
+				<a href="/sandal/edit/{{ $s->kodesandal}}"><i class="fas fa-edit"></i></a>
 				|
-				<a href="/absen/hapus/{{ $a->ID}}"><i class="fas fa-trash-alt"></i></a>
+				<a href="/sandal/hapus/{{ $s->kodesandal}}"><i class="fas fa-trash-alt"></i></a>
 			</td>
 		</tr>
         </tbody>
 		@endforeach
 	</table>
     <br/>
-    {{ $absen->links() }}
+    {{ $sandal->links() }}
 </div>
     @endsection

@@ -11,16 +11,14 @@
 	<form action="/tugas/store" method="post" class="container-fluid">
 		{{ csrf_field() }}
         <div class="row mb-3">
-            <label class="col-sm-2 col-form-label"">Pegawai ID</label>
-        <div class="col-3">
-		<input type="number" class="form-control" name="pegawai_id">
-        </div>
-        </div>
-        <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">ID</label>
-        <div class="col-3">
-		<input type="number" class="form-control" required="required" name="id" >
-        </div>
+            <label class="col-sm-2 col-form-label"">Nama Pegawai </label>
+                <div class="col-3">
+                    <select class="form-control" name="nama_pegawai">
+                        @foreach($pegawai as $p )
+                        <option value="{{ $p->pegawai_id }}"> {{ $p->pegawai_nama }}</option>
+                        @endforeach
+                    </select>
+                </div>
         </div>
         <div class="row mb-3">
             <label class="col-sm-2 col-form-label">Tanggal</label>

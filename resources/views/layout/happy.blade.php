@@ -179,10 +179,7 @@
                     <a href=" /tugas">Tugas</a>
                 </li>
                 <li>
-                    <a href="#">Minggu Depan</a>
-                </li>
-                <li>
-                    <a href="#">Praktikum</a>
+                    <a href="/sandal">Sandal</a>
                 </li>
             </ul>
         </nav>

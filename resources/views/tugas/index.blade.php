@@ -13,31 +13,31 @@
         <table class="table table-striped">
             <thead class="table-dark">
                 <tr>
-                    <th>Pegawai ID</th>
-                    <th>ID</th>
+                    <th>No</th>
+                    <th>ID Pegawai</th>
                     <th>Tanggal</th>
                     <th>Nama Tugas</th>
                     <th>Status</th>
                     <th>Opsi</th>
                 </tr>
             </thead>
-		@foreach($data as $p)
+		@foreach($tugas as $p)
         <tbody>
 		<tr>
-			<td>{{ $p->pegawai_id }}</td>
-			<td>{{ $p->id}}</td>
-			<td>{{ $p->tanggal}}</td>
-			<td>{{ $p->nama_tugas}}</td>
-            <td>{{ $p->status}}</td>
+            <td>{{ $loop->iteration }}</td>
+			<td>{{ $p->IDPegawai }}</td>
+			<td>{{ $p->Tanggal}}</td>
+			<td>{{ $p->NamaTugas}}</td>
+            <td>{{$p->Status == 1 ? "Selesai":"Belum Selesai"}}</td>
 			<td>
-				<a href="/tugas/edit/{{ $p->id }}"><i class="fas fa-edit"></i></a>
+				<a href="/tugas/edit/{{ $p->ID }}"><i class="fas fa-edit"></i></a>
 				|
-				<a href="/tugas/hapus/{{ $p->id }}"><i class="fas fa-trash-alt"></i></a>
+				<a href="/tugas/hapus/{{ $p->ID }}"><i class="fas fa-trash-alt"></i></a>
 			</td>
 		</tr>
     </tbody>
 		@endforeach
 	</table>
-
+    {{ $tugas->links() }}
 </div>
 @endsection
