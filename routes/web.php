@@ -34,6 +34,7 @@ Route::get('/pegawai/edit/{id}', 'PegawaiController@edit');
 Route::post('/pegawai/update', 'PegawaiController@update');
 Route::get('/pegawai/hapus/{id}', 'PegawaiController@hapus');
 Route::get('/pegawai/cari', 'PegawaiController@cari');
+Route::get('/pegawai/detail/{id}', 'PegawaiController@detail');
 
 Route::get('/tugas', 'TugasController@index');
 Route::get('/tugas/tambah', 'TugasController@create');
@@ -41,6 +42,8 @@ Route::post('/tugas/store', 'TugasController@store');
 Route::get('/tugas/edit/{id}', 'TugasController@edit');
 Route::post('/tugas/update', 'TugasController@update');
 Route::get('/tugas/hapus/{id}', 'TugasController@hapus');
+Route::get('/tugas/cari', 'TugasController@cari');
+Route::get('/tugas/detail/{id}', 'TugasController@detail');
 
 Route::get('/absen', 'AbsenController@index');
 Route::get('/absen/tambah', 'AbsenController@tambah');
@@ -48,6 +51,7 @@ Route::post('/absen/store', 'AbsenController@store');
 Route::get('/absen/edit/{id}', 'AbsenController@edit');
 Route::post('/absen/update', 'AbsenController@update');
 Route::get('/absen/hapus/{id}', 'AbsenController@hapus');
+Route::get('/absen/cari', 'AbsenController@cari');
 Route::get('/absen/detail/{id}', 'AbsenController@detail');
 
 Route::get('/sandal', 'SandalController@index');

@@ -15,15 +15,24 @@ class TugasController extends Controller
     public function index()
     {
         //$data = Tugas::all();
-        $tugas = DB::table('tugas')->paginate(5);
+
+        $tugas = DB::table('tugas')->join('pegawai', 'IDPegawai', '=', 'pegawai.pegawai_id')
+            ->select('tugas.*', 'pegawai_nama')->paginate(5);
         return view("tugas.index", ['tugas' => $tugas]); //
     }
+    public function cari(Request $request)
+    {
+        // menangkap data pencarian
+        $cari = $request->cari;
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+        // mengambil data dari table pegawai sesuai pencarian data
+        $tugas = DB::table('tugas')
+            ->join('pegawai', 'IDPegawai', '=', 'pegawai.pegawai_id')->select('tugas.*', 'pegawai.pegawai_nama')
+            ->where('pegawai_nama', 'like', "%" . $cari . "%")
+            ->paginate();
+        // mengirim data pegawai ke view index
+        return view('tugas.index', ['tugas' => $tugas]);
+    }
     public function create()
     {
         $pegawai = DB::table('pegawai')->orderBy("pegawai_nama", "asc")->get();
@@ -68,9 +77,10 @@ class TugasController extends Controller
     public function edit($id)
     {
         // $tugas = DB::find($id);
+        $pegawai = DB::table('pegawai')->orderBy("pegawai_nama", "asc")->get();
         $tugas = DB::table('tugas')->where('ID', $id)->first();
         // passing data pegawai yang didapat ke view edit.blade.php
-        return view('tugas.edit', ['tugas' => $tugas]); //
+        return view('tugas.edit', ['tugas' => $tugas, 'pegawai' => $pegawai]); //
     }
 
     /**
@@ -83,8 +93,7 @@ class TugasController extends Controller
     public function update(Request $request)
     {
         DB::table('tugas')->where('ID', $request->id)->update([
-            'IDPegawai' => $request->IDPegawai,
-            'ID' => $request->ID,
+            'IDPegawai' => $request->nama_pegawai,
             'Tanggal' => $request->Tanggal,
             'NamaTugas' => $request->NamaTugas,
             'Status' => $request->Status,
@@ -93,14 +102,9 @@ class TugasController extends Controller
         return redirect('/tugas'); //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function detail($id)
     {
-        //
+        $tugas = DB::table('tugas')->where('ID', $id)->join('pegawai', 'IDPegawai', '=', 'pegawai.pegawai_id')->select('tugas.*', 'pegawai.pegawai_nama')->first();
+        return view('tugas.detail', compact('tugas'));
     }
 }

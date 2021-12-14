@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container my-5">
-	<a href="/absen"> <i class="fas fa-arrow-left"> </i></a>
+	<a href="/tugas"> <i class="fas fa-arrow-left"> </i></a>
     <br/>
 	<br/>
     <h3> Data Absen </h3>
@@ -11,19 +11,19 @@
 	<table class="table table-striped">
         <thead>
             <tr>
-                <td>ID Pegawai</td>
+                <td>Nama Pegawai</td>
                 <td>:</td>
-                <td>{{ $absen->ID }}</td>
+                <td>{{ $tugas->pegawai_nama }}</td>
             </tr>
             <tr>
-                <td>Nama</td>
+                <td>Nama Tugas</td>
                 <td>:</td>
-                <td>{{ $absen->pegawai_nama }}</td>
+                <td>{{ $tugas->NamaTugas }}</td>
             </tr>
             <tr>
                 <td>Status</td>
                 <td>:</td>
-                <td>{{$absen->Status}}</td>
+                <td>{{$tugas->Status == 1 ? "Selesai":"Belum Selesai"}}</td>
             </tr>
         </thead>
     </table>

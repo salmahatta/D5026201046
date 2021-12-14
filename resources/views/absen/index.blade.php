@@ -7,7 +7,7 @@
 	<a href="/absen/tambah"> + Tambah Absen Baru</a>
 
 	<br/>
-    <form class="mt-3" action="/pegawai/cari" method="GET">
+    <form class="mt-3" action="/absen/cari" method="GET">
         <div class="input-group">
         <div class="form-outline">
         <input type="search" name="cari" placeholder="ketik nama pegawai" class="form-control" value="{{ old('cari') }}">
@@ -23,7 +23,7 @@
         <thead class="table-dark">
             <tr>
             <th>No</th>
-			<th>ID Pegawai</th>
+			<th>Nama</th>
 			<th>Tanggal</th>
 			<th>Status</th>
 			<th>Opsi</th>
@@ -33,7 +33,7 @@
         <tbody>
 		<tr>
             <td>{{ $loop->iteration }}</td>
-			<td>{{ $a->IDPegawai }}</td>
+			<td>{{ $a->pegawai_nama }}</td>
 			<td>{{ $a->Tanggal }}</td>
 			<td>{{ $a->Status }}</td>
 			<td>

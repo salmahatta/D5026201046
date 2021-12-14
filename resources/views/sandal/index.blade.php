@@ -1,6 +1,5 @@
 @extends('layout.happy')
 @section('content')
-<body>
 <div class="container my-5">
 	<h3>Data Sandal</h3>
 
