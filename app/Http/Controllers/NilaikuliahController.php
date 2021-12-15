@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-
-class nilaikuliahController extends Controller
+class NilaikuliahController extends Controller
 {
+    //{
     public function index()
     {
         // mengambil data dari table nilaikuliah
@@ -17,26 +17,12 @@ class nilaikuliahController extends Controller
         return view('nilaikuliah.index', ['nilaikuliah' => $nilaikuliah]);
     }
 
-    public function cari(Request $request)
-    {
-        // menangkap data pencarian
-        $cari = $request->cari;
-
-        // mengambil data dari table pegawai sesuai pencarian data
-        $nilaikuliah = DB::table('nilaikuliah')
-            ->join('pegawai', 'IDPegawai', '=', 'pegawai.pegawai_id')->select('nilaikuliah.*', 'pegawai.pegawai_nama')
-            ->where('pegawai_nama', 'like', "%" . $cari . "%")
-            ->paginate();
-
-        // mengirim data pegawai ke view index
-        return view('nilaikuliah.index', ['nilaikuliah' => $nilaikuliah]);
-    }
     // method untuk menampilkan view form tambah nilaikuliah
     public function tambah()
     {
 
         // memanggil view tambah
-        $niilaikuliah = DB::table('nilaikuliah')->get();
+        $nilaikuliah = DB::table('nilaikuliah')->get();
         return view('nilaikuliah.tambah', compact(['nilaikuliah']));
     }
 
@@ -45,9 +31,9 @@ class nilaikuliahController extends Controller
     {
         // insert data ke table nilaikuliah
         DB::table('nilaikuliah')->insert([
-            'IDPegawai' => $request->idpegawai,
-            'Tanggal' => $request->tanggal,
-            'Status' => $request->status
+            'NRP' => $request->nrp,
+            'NilaiAngka' => $request->nilai,
+            'SKS' => $request->sks
         ]);
         // alihkan halaman ke halaman nilaikuliah
         return redirect('/nilaikuliah');
@@ -58,9 +44,8 @@ class nilaikuliahController extends Controller
     {
         // mengambil data nilaikuliah berdasarkan id yang dipilih
         $nilaikuliah = DB::table('nilaikuliah')->where('ID', $id)->get();
-        $pegawai = DB::table('pegawai')->orderBy("pegawai_nama", "asc")->get();
         // passing data nilaikuliah yang didapat ke view edit.blade.php
-        return view('nilaikuliah.edit', compact(['pegawai', 'nilaikuliah']));
+        return view('nilaikuliah.edit', compact(['nilaikuliah']));
     }
 
     // update data pegawai
@@ -68,9 +53,9 @@ class nilaikuliahController extends Controller
     {
         // update data nilaikuliah
         DB::table('nilaikuliah')->where('ID', $request->id)->update([
-            'IDPegawai' => $request->idpegawai,
-            'Tanggal' => $request->tanggal,
-            'Status' => $request->status
+            'NRP' => $request->nrp,
+            'NilaiAngka' => $request->nilai,
+            'SKS' => $request->sks
         ]);
         // alihkan halaman ke halaman awal
         return redirect('/nilaikuliah');
@@ -84,10 +69,5 @@ class nilaikuliahController extends Controller
 
         // alihkan halaman ke halaman pegawai
         return redirect('/nilaikuliah');
-    }
-    public function detail($id)
-    {
-        $nilaikuliah = DB::table('nilaikuliah')->where('ID', $id)->join('pegawai', 'IDPegawai', '=', 'pegawai.pegawai_id')->select('nilaikuliah.*', 'pegawai.pegawai_nama')->first();
-        return view('nilaikuliah.detail', compact('nilaikuliah'));
     }
 }

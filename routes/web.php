@@ -62,3 +62,12 @@ Route::post('/sandal/update', 'SandalController@update');
 Route::get('/sandal/hapus/{id}', 'SandalController@hapus');
 Route::get('/sandal/cari', 'SandalController@cari');
 Route::get('/sandal/detail/{id}', 'SandalController@detail');
+
+Route::get('/nilaikuliah', 'NilaikuliahController@index');
+Route::get('/nilaikuliah/tambah', 'NilaikuliahController@tambah');
+Route::post('/nilaikuliah/store', 'NilaikuliahController@store');
+Route::get('/nilaikuliah/edit/{id}', 'NilaikuliahController@edit');
+Route::post('/nilaikuliah/update', 'NilaikuliahController@update');
+Route::get('/nilaikuliah/hapus/{id}', 'NilaikuliahController@hapus');
+Route::get('/nilaikuliah/cari', 'NilaikuliahController@cari');
+Route::get('/nilaikuliah/detail/{id}', 'NilaikuliahController@detail');

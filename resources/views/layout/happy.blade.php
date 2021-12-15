@@ -181,6 +181,9 @@
                 <li>
                     <a href="/sandal">Sandal</a>
                 </li>
+                <li>
+                    <a href="/nilaikuliah">Nilai Kuliah</a>
+                </li>
             </ul>
         </nav>
 
